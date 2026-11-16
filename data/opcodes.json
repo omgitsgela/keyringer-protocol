@@ -1,0 +1,142 @@
+{
+ "universal_code": {
+  "opcode": "00000",
+  "slot15_flag": 1,
+  "value_min": 0,
+  "value_max": 255,
+  "n_tones": 256
+ },
+ "signal_length_short": {
+  "opcode": "00001",
+  "slot15_flag": 1,
+  "value_min": 5,
+  "value_max": 8,
+  "n_tones": 4
+ },
+ "signal_length_long": {
+  "opcode": "00010",
+  "slot15_flag": 1,
+  "value_min": 6,
+  "value_max": 13,
+  "n_tones": 8
+ },
+ "double_click_speed": {
+  "opcode": "00011",
+  "slot15_flag": 1,
+  "value_min": 3,
+  "value_max": 100,
+  "n_tones": 98
+ },
+ "uniq_code_xmit_base_lo": {
+  "opcode": "00100",
+  "slot15_flag": 1,
+  "value_min": 0,
+  "value_max": 255,
+  "n_tones": 256
+ },
+ "uniq_code_xmit_base_hi": {
+  "opcode": "00101",
+  "slot15_flag": 1,
+  "value_min": 0,
+  "value_max": 15,
+  "n_tones": 16
+ },
+ "uniq_code_rcv_lo": {
+  "opcode": "00110",
+  "slot15_flag": 1,
+  "value_min": 0,
+  "value_max": 255,
+  "n_tones": 256
+ },
+ "uniq_code_rcv_hi": {
+  "opcode": "00111",
+  "slot15_flag": 1,
+  "value_min": 0,
+  "value_max": 15,
+  "n_tones": 16
+ },
+ "min_response_volume": {
+  "opcode": "01000",
+  "slot15_flag": 1,
+  "value_min": 1,
+  "value_max": 5,
+  "n_tones": 5
+ },
+ "max_response_volume": {
+  "opcode": "01001",
+  "slot15_flag": 1,
+  "value_min": 1,
+  "value_max": 5,
+  "n_tones": 5
+ },
+ "response_duration": {
+  "opcode": "01010",
+  "slot15_flag": 1,
+  "value_min": 1,
+  "value_max": 255,
+  "n_tones": 255
+ },
+ "min_call_volume": {
+  "opcode": "01011",
+  "slot15_flag": 1,
+  "value_min": 1,
+  "value_max": 5,
+  "n_tones": 5
+ },
+ "max_call_volume": {
+  "opcode": "01100",
+  "slot15_flag": 1,
+  "value_min": 1,
+  "value_max": 5,
+  "n_tones": 5
+ },
+ "duration_each_call_vol": {
+  "opcode": "01101",
+  "slot15_flag": 1,
+  "value_min": 1,
+  "value_max": 5,
+  "n_tones": 5
+ },
+ "disable_low_battery": {
+  "opcode": "01110",
+  "slot15_flag": 1,
+  "value_min": 0,
+  "value_max": 1,
+  "n_tones": 2
+ },
+ "flicker_led": {
+  "opcode": "01111",
+  "slot15_flag": 1,
+  "value_min": 0,
+  "value_max": 1,
+  "n_tones": 2
+ },
+ "detection_window_size": {
+  "opcode": "10000",
+  "slot15_flag": 1,
+  "value_min": 1,
+  "value_max": 6,
+  "n_tones": 6
+ },
+ "threshold_12": {
+  "opcode": "11110",
+  "slot15_flag": 0,
+  "value_min": 4,
+  "value_max": 64,
+  "n_tones": 61
+ },
+ "threshold_25": {
+  "opcode": "11111",
+  "slot15_flag": 0,
+  "value_min": 16,
+  "value_max": 128,
+  "n_tones": 113
+ },
+ "factory_reset": {
+  "opcode": "11111",
+  "slot15_flag": 1,
+  "value_min": 0,
+  "value_max": 0,
+  "n_tones": 1
+ }
+}
