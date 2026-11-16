@@ -22,10 +22,10 @@ entry: 303/303 MD5-identical. Analysis used the union: 5,869 unique tones.)
 The live site's 17 buttons fetch lazily from `music.wixstatic.com/mp3/<id>.mp3`;
 the URLs were captured by clicking every Play button and diffing the browser's
 `performance.getEntriesByType('resource')` log (Wix JSON scraping was a dead
-end; click-and-diff worked). **MD5 verification: 16 of 17 live tones are
-byte-identical to vendor library files** (`universal_5_1`, `universal_5_5`,
-`unique_5_1…14`); the 17th ("CALL ORIGINAL") is byte-identical to
-`keyringer1.mp3`. So the live page and the archived library are the same
+end; click-and-diff worked). **MD5 verification: all 17 live tones are
+byte-identical to vendor library files** — `universal_5_1`, `universal_5_5`,
+`unique_5_1…14` (16 address tones) and `keyringer1.mp3` for the
+"CALL ORIGINAL" button. So the live page and the archived library are the same
 system.
 
 The archives were security-scanned before extraction (magic bytes, path
