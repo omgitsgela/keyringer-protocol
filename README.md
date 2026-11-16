@@ -19,7 +19,7 @@ and the resulting grammar was re-encoded and compared back. Final state:
 
 | Layer | Coverage | Result |
 |---|---|---|
-| Calling/address frames | 4,492 vendor files + 16 live files | **100% symbol-exact** round-trip |
+| Calling/address frames | 4,492 vendor address tones (the 17 live page tones are byte-identical duplicates of 16 of these) | **100% symbol-exact** round-trip |
 | Programming/command frames | 1,375 vendor files | **100% symbol-exact, all 17 slots** (slot 17 from the published vendor table) |
 | Slot 17 check symbol | 1,375 files | deterministic; closed-form rule not recoverable — full truth table published instead |
 | Filename ↔ decode agreement | 5,867 vendor files | **5,855 direct matches**, 12 explained by one-hot volume encoding, 3 legacy/special files documented separately |

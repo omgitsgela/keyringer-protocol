@@ -69,7 +69,7 @@ and its factory-reset branch writes the default table reproduced in
 | Command encoder re-encode, slots 1–16 | **1,375 / 1,375 symbol-string exact** |
 | Slot 16 parity rule | `XOR(slots 2..16) == 0` on **1,375 / 1,375** |
 | Family/value coverage vs filename taxonomy | 12 calling families, 20 command families, identical ranges |
-| Unique-code collisions | 0 — 4,010 unique frames, 4,010 distinct symbol strings (the long-code flag transition is what keeps L=10 value 106 distinct from L=12 value 106… they share a string *by design*: same code, different configured length) |
+| Unique-code collisions | 0 — 4,012 unique frames, 4,012 distinct symbol strings (the long-code flag transition plus the length-implicit slot count keeps every code/length pair unique) |
 | End-to-end: repo encoder → WAV → repo decoder | all families/values sampled: exact; see `tools/verify_roundtrip.py` |
 
 The one-hot volume finding came from exactly those 12 "mismatches": the
@@ -83,11 +83,11 @@ staying plain binary (it's a count, not a level).
 Pair statistics first: for `universal_5_V` the symbol at slot k correlates with
 nothing at a fixed position — but the *transition* at slot k is a pure function
 of bit k of V (verified per position for L = 5, 6, 7, 8; no exceptions across
-482 files). Same for unique frames from a C anchor. The unique frames' first
+480 files). Same for unique frames from a C anchor. The unique frames' first
 transition initially looked like a constant header (`C→B`), but across L = 9…12
 it flips at V = 16 — a boundary the filename data confirms is exactly the
 vendor page's `< 16 ? short : long` branch, so the frame carries that decision
-as a bit. With that rule the encoder matches the entire 4,010-file unique
+as a bit. With that rule the encoder matches the entire 4,012-file unique
 corpus exactly.
 
 The directed transition table (`B→A` = 1 while `A→B` = 0) means adjacent equal

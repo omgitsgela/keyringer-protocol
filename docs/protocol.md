@@ -54,7 +54,7 @@ tone stopped and which started* more reliably than a fixed label.
 - Anchor symbol: `A` (immediately after sync)
 - Then `L` transition bits, LSB-first, where `L` ∈ {5, 6, 7, 8}
 - Value range: 0 … 2^L − 1. Vendor corpus contains all values 0–31 (L=5),
-  0–63 (L=6), 0–127 (L=7), 0–255 (L=8): 482 files.
+  0–63 (L=6), 0–127 (L=7), 0–255 (L=8): 480 files.
 
 `L` is the unit's *short/long signal length* setting — the device's receiver
 only listens for frames of its configured length, and the site chooses the
@@ -75,17 +75,20 @@ Example — `universal_5_5` (the site's "CALL DOMINO" button): bits `10100` = 5.
   *encoded into the audio itself*, so the device always knows which length to
   expect without a separate negotiation.
 - Then `L−1` data bits LSB-first (bits 0 … L−2).
-- `L` ∈ {5…12}; vendor corpus: L=5 values 1–15, L=6 values 1–31, L=7 1–63,
-  L=8 1–127, L=9 16–255, L=10 16–511, L=11 16–1023, L=12 16–2047 (4,010 files;
-  value 0 is reserved/no tone, values 1–15 appear only in short lengths).
+- `L` = 5–12; vendor corpus: L=5 values 1–15, L=6 values 1–31, L=7 1–63,
+  L=8 1–127, L=9 16–255, L=10 16–511, L=11 16–1023, L=12 16–2047 (4,012
+  files; value 0 is reserved/no tone; values 1–15 occur only at L=5–8 and
+  values ≥16 only at L=6–12, and the flag transition agrees with `V ≥ 16` in
+  all 4,012 files).
 
 Example — `unique_5_7` (site button "unit 7"): symbols `C B A C A B`.
 Transitions: C→B (flag 0, correct since 7 < 16), B→A (1), A→C (1), C→A (1),
 A→B (0) → data bits LSB-first `1110` = **7**. ✔
 
 Example — `unique_12_1000` (from vendor library, measured run list):
-`B(sync) C A B C B A B A C A C A B` → flag C→A = 1 (1000 ≥ 16 ✔), data
-bits `00011000111` = 1000. ✔
+`B(sync) C A B C B A B A C A C A B` → flag C→A = 1 (1000 ≥ 16 ✔); data
+transitions A→B(0) B→C(0) C→B(0) B→A(1) A→B(0) B→A(1) A→C(1) C→A(1) A→C(1)
+C→A(1) A→B(0), LSB-first → 8+32+64+128+256+512 = **1000**. ✔
 
 ## 2. Programming (command) frames
 
